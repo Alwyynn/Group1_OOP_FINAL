@@ -2,6 +2,16 @@
     background-color: #333; /* Dark background */
     font-size: 62.5%;
   }
+
+  html,
+  body {
+    margin: 0;
+    background-image: url('1.jpg');
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    background-attachment: fixed; /* Fixed background */
+  }
   
   * {
     box-sizing: border-box;
