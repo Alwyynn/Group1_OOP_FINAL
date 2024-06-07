@@ -17,7 +17,6 @@ let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
-let lives = 5;
 let questions = [
   {
     question: "What is the sum of the first 20 terms of the arithmetic sequence where the first term is 2 and the common difference is 3?",
@@ -100,7 +99,6 @@ let questions = [
     answer: 2
   }
 ];
-
 const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 10;
 const TIME_LIMIT = 10;
@@ -110,6 +108,7 @@ let timeLeft = TIME_LIMIT;
 function startGame() {
   questionCounter = 0;
   score = 0;
+  lives = 5;
   availableQuestions = [...questions];
   getNewQuestion();
 }
@@ -160,6 +159,8 @@ choices.forEach(choice => {
 
     setTimeout(() => {
       selectedChoice.parentElement.classList.remove(classToApply);
+      const correctChoice = document.querySelector(`.choice-text[data-number="${currentQuestion.answer}"]`);
+      correctChoice.parentElement.classList.remove("correct"); // Remove correct class after timeout
       getNewQuestion();
     }, 1000);
   });
@@ -214,6 +215,11 @@ function handleIncorrectAnswer(selectedAnswer) {
     `.choice-text[data-number="${selectedAnswer}"]`
   );
   selectedChoice.parentElement.classList.add("incorrect");
+
+  setTimeout(() => {
+    selectedChoice.parentElement.classList.remove("incorrect");
+    correctChoice.parentElement.classList.remove("correct");
+  }, 1000);
 }
 
 function decrementLives() {

@@ -159,6 +159,8 @@ choices.forEach(choice => {
 
     setTimeout(() => {
       selectedChoice.parentElement.classList.remove(classToApply);
+      const correctChoice = document.querySelector(`.choice-text[data-number="${currentQuestion.answer}"]`);
+      correctChoice.parentElement.classList.remove("correct"); // Remove correct class after timeout
       getNewQuestion();
     }, 1000);
   });
@@ -213,6 +215,11 @@ function handleIncorrectAnswer(selectedAnswer) {
     `.choice-text[data-number="${selectedAnswer}"]`
   );
   selectedChoice.parentElement.classList.add("incorrect");
+
+  setTimeout(() => {
+    selectedChoice.parentElement.classList.remove("incorrect");
+    correctChoice.parentElement.classList.remove("correct");
+  }, 1000);
 }
 
 function decrementLives() {

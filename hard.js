@@ -19,84 +19,94 @@ let questionCounter = 0;
 let availableQuestions = [];
 let questions = [
   {
-    question: "What is the sum of the first 20 terms of the arithmetic sequence where the first term is 2 and the common difference is 3?",
-    choice1: "290",
-    choice2: "400",
-    choice3: "420",
-    choice4: "460",
-    answer: 3
+    question: "In how many ways can you arrange the letters of the word 'MATHEMATICS'?",
+    choice1: "10! (factorial)",
+    choice2: "11! (factorial)",
+    choice3: "12! (factorial)",
+    choice4: "13! (factorial)",
+    answer: 3,
+    explanation: "The word 'MATHEMATICS' has 11 letters, but there are repeating letters. So, the correct answer is 12! (factorial)."
   },
   {
-    question: "How many different ways can you arrange the letters of the word 'DISCRETE'?",
-    choice1: "5,040",
-    choice2: "20,160",
-    choice3: "40,320",
-    choice4: "80,640",
-    answer: 2
-  },
-  {
-    question: "In a simple graph with 10 vertices and 15 edges, what is the sum of the degrees of all vertices?",
+    question: "What is the result of 5 factorial (5!)?",
     choice1: "15",
-    choice2: "20",
-    choice3: "30",
-    choice4: "60",
-    answer: 4
+    choice2: "120",
+    choice3: "25",
+    choice4: "720",
+    answer: 2,
+    explanation: "The factorial of 5 (5!) is calculated as 5 × 4 × 3 × 2 × 1, which equals 120."
   },
   {
-    question: "How many subsets does a set with 8 elements have?",
-    choice1: "64",
-    choice2: "128",
-    choice3: "256",
-    choice4: "512",
-    answer: 3
+    question: "Which of the following is NOT a fundamental component of digital logic design?",
+    choice1: "Flip-flop",
+    choice2: "Transistor",
+    choice3: "Capacitor",
+    choice4: "Gate",
+    answer: 3,
+    explanation: "Digital logic design primarily involves components such as transistors, gates (e.g., AND, OR, NOT), and flip-flops, but capacitors are not typically considered fundamental components in this context."
   },
   {
-    question: "What is the minimum number of colors needed to color a complete graph with 5 vertices (K5)?",
-    choice1: "2",
-    choice2: "3",
-    choice3: "4",
-    choice4: "5",
-    answer: 4
+    question: "Which law in Boolean algebra states that the complement of the sum of two variables is equal to the product of their complements?",
+    choice1: "Identity law",
+    choice2: "De Morgan's law",
+    choice3: "Commutative law",
+    choice4: "Distributive law",
+    answer: 2,
+    explanation: "De Morgan's law states that the complement of the sum of two variables is equal to the product of their complements, expressed as ¬(A + B) = ¬A ⋅ ¬B."
   },
   {
-    question: "A force of 50 N moves an object 5 meters in the direction of the force. What is the work done?",
-    choice1: "200 J",
-    choice2: "250 J",
-    choice3: "300 J",
-    choice4: "350 J",
-    answer: 2
+    question: "What is the SI unit of electric charge?",
+    choice1: "Ampere (A)",
+    choice2: "Volt (V)",
+    choice3: "Coulomb (C)",
+    choice4: "Ohm (Ω)",
+    answer: 3,
+    explanation: "The SI unit of electric charge is the coulomb (C), named after the French physicist Charles-Augustin de Coulomb."
   },
   {
-    question: "What is the frequency of a wave with a wavelength of 2 meters traveling at a speed of 10 meters per second?",
-    choice1: "2.5 Hz",
-    choice2: "5 Hz",
-    choice3: "10 Hz",
-    choice4: "20 Hz",
-    answer: 2
+    question: "Which law in physics states that for every action, there is an equal and opposite reaction?",
+    choice1: "Newton's first law",
+    choice2: "Newton's second law",
+    choice3: "Newton's third law",
+    choice4: "Law of gravitation",
+    answer: 3,
+    explanation: "Newton's third law of motion states that for every action, there is an equal and opposite reaction. This law is fundamental in understanding forces and motion."
   },
   {
-    question: "Which of the following particles has the highest mass?",
-    choice1: "Electron",
-    choice2: "Proton",
-    choice3: "Neutron",
-    choice4: "Photon",
-    answer: 3
+    question: "What is the formula to calculate the velocity of an object given its displacement and time taken?",
+    choice1: "v = d / t",
+    choice2: "v = d * t",
+    choice3: "v = t / d",
+    choice4: "v = d + t",
+    answer: 1,
+    explanation: "The formula to calculate velocity (v) is given by dividing the displacement (d) by the time taken (t)."
   },
   {
-    question: "According to Newton’s second law of motion, what is the acceleration of a 10 kg object when a force of 60 N is applied to it?",
-    choice1: "4 m/s²",
-    choice2: "5 m/s²",
-    choice3: "6 m/s²",
-    choice4: "7 m/s²",
-    answer: 3
+    question: "Which theorem in discrete mathematics states that any integer greater than 1 can be written as a unique product of prime numbers?",
+    choice1: "Fundamental theorem of arithmetic",
+    choice2: "Euler's theorem",
+    choice3: "Fermat's little theorem",
+    choice4: "Chinese remainder theorem",
+    answer: 1,
+    explanation: "The fundamental theorem of arithmetic states that any integer greater than 1 can be written uniquely as a product of prime numbers, up to the order of the factors."
   },
   {
-    question: "What is the escape velocity from the surface of Earth, ignoring air resistance?",
-    choice1: "7.9 km/s",
-    choice2: "11.2 km/s",
-    choice3: "15.6 km/s",
-    choice4: "20.5 km/s",
-    answer: 2
+    question: "Which programming language is commonly used for low-level programming and embedded systems?",
+    choice1: "Java",
+    choice2: "Python",
+    choice3: "C",
+    choice4: "JavaScript",
+    answer: 3,
+    explanation: "C is commonly used for low-level programming and embedded systems due to its efficiency, close-to-hardware features, and portability."
+  },
+  {
+    question: "In digital electronics, what does the term 'clock frequency' refer to?",
+    choice1: "The speed at which data is transmitted over a network",
+    choice2: "The frequency of the clock signal used to synchronize operations in a digital system",
+    choice3: "The frequency of the power supply in a digital circuit",
+    choice4: "The frequency at which a microprocessor operates",
+    answer: 2,
+    explanation: "In digital electronics, the clock frequency refers to the frequency of the clock signal, which is used to synchronize various operations within a digital system."
   }
 ];
 const CORRECT_BONUS = 10;
@@ -121,11 +131,6 @@ function getNewQuestion() {
   questionCounter++;
   progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
   progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
-
-  // Remove green highlight from previous question
-  choices.forEach(choice => {
-    choice.parentElement.classList.remove("correct");
-  });
 
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
@@ -164,6 +169,8 @@ choices.forEach(choice => {
 
     setTimeout(() => {
       selectedChoice.parentElement.classList.remove(classToApply);
+      const correctChoice = document.querySelector(`.choice-text[data-number="${currentQuestion.answer}"]`);
+      correctChoice.parentElement.classList.remove("correct"); // Remove correct class after timeout
       getNewQuestion();
     }, 1000);
   });
@@ -218,6 +225,11 @@ function handleIncorrectAnswer(selectedAnswer) {
     `.choice-text[data-number="${selectedAnswer}"]`
   );
   selectedChoice.parentElement.classList.add("incorrect");
+
+  setTimeout(() => {
+    selectedChoice.parentElement.classList.remove("incorrect");
+    correctChoice.parentElement.classList.remove("correct");
+  }, 1000);
 }
 
 function decrementLives() {
@@ -225,7 +237,7 @@ function decrementLives() {
   livesText.innerText = lives;
   if (lives <= 0) {
     localStorage.setItem("mostRecentScoreHard", score);
-    return window.location.assign("hardend.html");
+    return window.location.assign("Hardend.html");
   }
 }
 
